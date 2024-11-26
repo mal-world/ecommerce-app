@@ -7,9 +7,9 @@ const Navbar = () => {
     const [visible, setVisible] = useState(false);
 
   return (
-    <div className='flex items-center justify-between py-5 font-medium'>
+    <div className='flex items-center justify-between py-5 font-medium sticky top-0 z-50 bg-white'>
 
-        <img src={assets.logo} className='w-36' alt="" />
+        <Link to='/'><img src={assets.logo} className='w-36' alt="" /></Link>
 
         <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
@@ -57,8 +57,17 @@ const Navbar = () => {
         </div>
 
         {/* Sidebar menu for small screens */}
-        <div className={`absolute top-0 right-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`}>
-
+        <div className={`absolute top-0 right-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
+            <div className='flex flex-col text-gray-600'> 
+                <div onClick={()=> setVisible(false)} className='flex items-center gap-4 p-3'>
+                    <img src={assets.dropdown_icon} className='h-4 rotate-180 cursor-pointer' alt="" />
+                    <p className='cursor-pointer'>Back</p>
+                </div>
+                <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/'>Home</NavLink>
+                <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/collection'>Collection</NavLink>
+                <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/about'>About</NavLink>
+                <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/contact'>Contact</NavLink>
+            </div>
         </div>
 
     </div>

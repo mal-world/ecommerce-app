@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Context = () => {
+const Contact = () => {
   return (
-    <div>Context</div>
+    <div>
+      
+    </div>
   )
 }
 
-export default Context
+export default Contact
